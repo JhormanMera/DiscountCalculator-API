@@ -4,27 +4,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-    <title>Cotizador</title>
+    <title>Calcular descuento</title>
   </head>
   <body>
-
-    <div class="container mt-5">
+    <div class="container mt-5 offset-3">
         <h1>Calcular descuento</h1>
-        <form class="row g-3">
+        <form class="col-md-12">
           <div class="col-md-6">
             <label for="console" class="form-label">Consola</label>
             <input type="text" class="form-control" id="console" required>
           </div>
           <div class="col-md-6">
             <label for="lastName" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="lastName" required>
+            <input type="number" class="form-control" id="price" required>
           </div>
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Calcular</button>
+          <br>
+          <div class="col-md-2">  
+            <button type="submit" class="btn btn-primary" id="btn-send">Calcular</button>
           </div>
         </form>
     </div>
