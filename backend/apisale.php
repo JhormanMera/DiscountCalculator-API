@@ -15,7 +15,7 @@ class ApiSale{
 
     function calculateDiscount($price,$discount){
         // realizar cálculos necesarios para obtener el valor a cobrar al cliente
-        $valorACobrar = $price * (1 - ($discount / 100));
+        $valorACobrar = round($price * (1 - ($discount / 100)),2);
         header('Content-Type: application/json');
         echo $this->printJson(['valorACobrar' => $valorACobrar]);
     }
@@ -87,26 +87,7 @@ class ApiSale{
     }
 
     function InsertSale(){
-        $sale = new Sale();
-        $sales = array();
-        $sales["items"] = array();
-        $res = $sale->getAllSales();
-
-        if($res->rowCount()){
-            while($row = $res->fetch(PDO::FETCH_ASSOC)){
-                $item=array(
-                    'id' => $row['id'],
-                    'console' => $row['console'],
-                    'min_price' => $row['min_price'],
-                    'max_price' => $row['max_price'],
-                    'discount' => $row['discount'],
-                );
-                array_push($sales['items'], $item);
-            }
-            $this->printJSON($sales);
-        }else{
-            $this->errorMessage('No sales are currently registered');
-        }
+        
     }
         
 }
