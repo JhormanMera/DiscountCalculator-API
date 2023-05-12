@@ -18,7 +18,7 @@ if(count(array_filter($arrayRoutes))<3){
             }
         }else if($arrayRoutes[3]=='sales'){
             if(isset($_SERVER['REQUEST_METHOD'])&&$_SERVER['REQUEST_METHOD']=='GET'){
-                $api->getAllSales();
+                $api->getSalesWithDiscount();
             }else if(isset($_SERVER['REQUEST_METHOD'])&&$_SERVER['REQUEST_METHOD']=='POST'){
                 $data = json_decode(file_get_contents('php://input'), true);
                 $console = $data['console'];

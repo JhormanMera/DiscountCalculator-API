@@ -19,7 +19,7 @@ const calculatePrice = async (
       document.getElementById('lblShowPrice').textContent = `${valorACobrar}`;
     });
 
-    insertSale(e);
+    await insertSale(e);
 
    }else{
       window.alert("The console name cannot be longer than 20 characters.")
@@ -32,7 +32,11 @@ const insertSale = async (
    e.preventDefault();
    consoleToBuy = getValue("lblConsole")
    price = getValue("lblPrice")
-   final_price = getValue("lblShowPrice")
+   final_price =document.getElementById("lblShowPrice").innerHTML;
+   console.log(consoleToBuy)
+   console.log(price)
+   console.log(final_price)
+
    await fetch('http://localhost/DISCOUNTCALCULATOR-API/backend/sales', {
       method: 'POST',
       headers: {
