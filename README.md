@@ -14,7 +14,7 @@
 + [PHP](https://www.php.net/downloads/) - Backend programming language used.
 + [MySql](https://www.mysql.com/) - Database used.
 + [Visual Studio Code](https://code.visualstudio.com/) - IDE in which the base code was worked.
-+[Postman](https://www.postman.com/) - API client that will allow us to make requests and view the responses to and from the REST application.
++ [Postman](https://www.postman.com/) - API client that will allow us to make requests and view the responses to and from the REST application.
 
 ## <b> _Overview_ </b> 💻🕹️
 
