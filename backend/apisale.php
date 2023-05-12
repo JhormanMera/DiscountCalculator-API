@@ -127,6 +127,24 @@ class ApiSale{
         }
     }
 
+    function getTotalDiscount(){
+        $sale = new Sale();
+        $sales = array();
+        $sales["items"] = array();
+
+        $res = $sale->getTotalDiscount();
+        $total_discount=0;
+
+        if($res->rowCount()){
+            while($row = $res->fetch(PDO::FETCH_ASSOC)){
+                $total_discount=$total_discount+($row['price']-$row['final_price']);
+            }
+            $this->printJSON(['descuentoTotal' => $total_discount]);
+        }else{
+            $this->errorMessage('No sales with discount are currently registered');
+        }
+    }
+
     function getSalesWithDiscount(){
         $sale = new Sale();
         $sales = array();
@@ -147,7 +165,7 @@ class ApiSale{
             }
             $this->printJSON($sales);
         }else{
-            $this->errorMessage('No sales with discount are currently registered');
+            $this->errorMessage('No sales are currently registered');
         }
     }
         

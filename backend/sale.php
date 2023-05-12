@@ -24,6 +24,11 @@ class Sale extends DB{
         return $query;
     }
 
+    function getTotalDiscount(){
+        $query = $this->connect()->query('SELECT `price`, `final_price` FROM sales_history WHERE final_price != price');
+        return $query;
+    }
+
     function insertSale($id,$console,$price,$discount_id,$final_price){
         $query = $this->connect()->query('INSERT INTO `sales_history`(`id`, `console`, `price`, `discount_id`, `final_price`) VALUES ('.$id.',"'.$console.'",'.$price.','.$discount_id.','.$final_price.')');
         return $query;
