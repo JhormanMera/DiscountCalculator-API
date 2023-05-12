@@ -20,11 +20,11 @@ class Sale extends DB{
     }
 
     function getSalesWithDiscount(){
-        $query = $this->connect()->query('SELECT * FROM sales_history WHERE discount > 0');
+        $query = $this->connect()->query('SELECT * FROM sales_history WHERE final_price != price');
         return $query;
     }
 
-    function InsertSales($id,$console,$price,$discount_id,$final_price){
+    function insertSale($id,$console,$price,$discount_id,$final_price){
         $query = $this->connect()->query('INSERT INTO `sales_history`(`id`, `console`, `price`, `discount_id`, `final_price`) VALUES ('.$id.',"'.$console.'",'.$price.','.$discount_id.','.$final_price.')');
         return $query;
     }
